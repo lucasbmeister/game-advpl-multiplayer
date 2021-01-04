@@ -6,6 +6,6 @@ O servidor multiplayer é o Redis.
 **Ainda não finalizado (WIP)**
 
 Para executar:
-1 - Executar init.bat na pasta Redis
-2 - Abrir o Protheus com o programa inicial GAMEMULTI
-3 - Informar os dados de servidor e nome de usuário
+* 1 - Executar init.bat na pasta Redis
+* 2 - Abrir o Protheus com o programa inicial GAMEMULTI
+* 3 - Informar os dados de servidor e nome de usuário
