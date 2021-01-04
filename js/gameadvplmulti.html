@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="twebchannel.js"></script>
+    <script src="jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var pressedKeys = {};
+        var lastUpdateIsProcessed = true;
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            //documento foi carregado, conectar no twebchannel:
+            twebchannel.connect(function () {
+                // Signal que recebe o codigo vindo do AdvPL para injecao
+                twebchannel.advplToJs = advplToJs;
+
+                twebchannel.jsToAdvpl("start", "Pagina Inicializada");
+            });
+
+        }, false);
+
+
+        function advplToJs(codeType, codeContent) {
+            if (codeType === "started") {
+                start();
+            } else if (codeType === "processed") {
+                lastUpdateIsProcessed = true;
+            }
+        }
+
+        function start() {
+            setInterval(update, 33);
+        }
+
+        function update() {
+            if (lastUpdateIsProcessed) {
+                twebchannel.jsToAdvpl("update", JSON.stringify(pressedKeys));
+                lastUpdateIsProcessed = false;
+            }
+        }
+
+        onkeydown = onkeyup = function (e) {
+            e = e || event;
+            pressedKeys[e.key] = e.type == 'keydown';
+        }
+
+
+    </script>
+</head>
+
+<body style="font-size:10px;">
+    Clique aqui caso os controles não estejam funcionando
+</body>
+
+</html>
