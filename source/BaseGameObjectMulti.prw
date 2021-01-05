@@ -74,7 +74,7 @@ Method New(oWindow) Class BaseGameObjectMulti
     Local cTempPath as char
 
     cTempPath := GetTempPath()
-    ::cAssetsPath := cTempPath + "gameadvpl\assets\
+    ::cAssetsPath := cTempPath + "gameadvplmulti\assets\
 
     if !Empty(oWindow)
         ::SetWindow(oWindow)
